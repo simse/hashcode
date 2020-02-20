@@ -118,7 +118,7 @@ def pick_library():
     max_id = 0
     library_efficiency = []
 
-    with Pool(20) as p:
+    with Pool(50) as p:
         library_efficiency = p.map(efficiency, libraries)
 
     # exit(library_efficiency)
