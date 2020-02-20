@@ -4,7 +4,7 @@ pizza_types = []
 pizza_types_count = 0
 
 # Read input from file
-input_file = open('d_quite_big.in', 'r')
+input_file = open('input/e_also_big.in', 'r')
 meta_line = input_file.readline()
 pizza_line = input_file.readline()
 input_file.close()
