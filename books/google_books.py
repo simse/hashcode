@@ -24,7 +24,7 @@ class Book:
         self._score = score
 
 
-INPUT_FILE = 'b_read_on.txt'
+INPUT_FILE = 'e_so_many_books.txt'
 
 
 # Read input
@@ -118,7 +118,7 @@ def pick_library():
     max_id = 0
     library_efficiency = []
 
-    with Pool(50) as p:
+    with Pool(20) as p:
         library_efficiency = p.map(efficiency, libraries)
 
     # exit(library_efficiency)
@@ -146,8 +146,14 @@ def library_books_to_be_scanned(library, days_left):
     # Calculate capability of library
     books_to_be_scanned = (days_left - library._signup_delay) * library._scanning_ability
 
+    for index, b in enumerate(sorted_books):
+        if b._id in scanned_books:
+            del sorted_books[index]
+
     # Get books to be scanned
     books_to_scan = sorted_books[:books_to_be_scanned]
+
+
 
     # Register as scanned
     for book in books_to_scan:
